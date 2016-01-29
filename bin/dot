@@ -69,7 +69,15 @@ tap.on('output', function (res) {
     outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural + '\n\n');
 
     res.fail.forEach(function (error) {
-      outPush('  ' + chalk.red('x') + ' ' + error.name + '\n');
+      outPush('  ' + error.testName + '\n\n' );
+      outPush('  ' + chalk.red('x') + ' ' + chalk.bold( error.name ) );
+      outPush(
+        '\n      ---------' +
+        '\n      ' + chalk.cyan( 'operator' ) + ': ' + error.error.operator + 
+        '\n      ' + chalk.cyan( 'expected' ) + ': ' + error.error.expected + 
+        '\n      ' + chalk.cyan( 'actual' ) + ':   ' + error.error.actual +
+        '\n      ---------'
+      );
     });
 
     outPush('\n');
