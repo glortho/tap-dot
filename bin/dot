@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+var util = require('util')
 var through = require('through2');
 var parser = require('tap-out');
 var chalk = require('chalk');
@@ -54,7 +55,6 @@ tap.on('output', function (res) {
 
   if (res.fail && res.fail.length) {
     errors = res.fail;
-    outPush('\n\n\n');
     outputExtra();
 
     statsOutput();
@@ -84,14 +84,12 @@ tap.on('output', function (res) {
   }
   else{
     statsOutput();
-
-    outPush('\n');
-    outPush(chalk.green('Pass!') + '\n');
+    outPush(chalk.bold.green('Nice work!') + '\n');
   }
 
   function statsOutput () {
 
-    outPush('\n\n')
+    outPush('\n')
     outPush(chalk.green(res.pass.length + ' passed\n'));
   }
 });
