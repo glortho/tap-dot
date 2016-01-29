@@ -84,7 +84,7 @@ tap.on('output', function (res) {
   }
   else{
     statsOutput();
-    outPush(chalk.bold.green('Nice work!') + '\n');
+    outPush(chalk.bold.green('Nice work!') + '\n\n');
   }
 
   function statsOutput () {
