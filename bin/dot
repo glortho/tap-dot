@@ -84,7 +84,6 @@ tap.on('output', function (res) {
   function statsOutput () {
 
     outPush('\n\n')
-    outPush(res.tests.length + ' tests\n');
     outPush(chalk.green(res.pass.length + ' passed\n'));
   }
 });
