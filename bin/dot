@@ -65,10 +65,10 @@ tap.on('output', function (res) {
 
     outPush('\n\n');
     outPush(chalk.red('Failed Tests: '));
-    outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural );
+    outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural + '\n' );
 
     res.fail.forEach(function (error) {
-      outPush( '\n\n' );
+      outPush( '\n' );
       outPush('  ' + error.testName + '\n\n' );
       outPush('  ' + chalk.red('x') + ' ' + chalk.bold( error.name ) );
       outPush(
@@ -77,7 +77,7 @@ tap.on('output', function (res) {
         '\n      ' + chalk.cyan( 'expected' ) + ': ' + error.error.expected + 
         '\n      ' + chalk.cyan( 'actual' ) + ':   ' + error.error.actual +
         ( !error.error.stack ? '' : '\n      ' + chalk.cyan( 'at' ) + ':       ' + error.error.stack.split( '\n' )[0] ) +
-        '\n      ---------'
+        '\n      ---------\n'
       );
     });
 
