@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var util = require('util')
 var through = require('through2');
 var parser = require('tap-out');
 var chalk = require('chalk');
@@ -22,7 +21,7 @@ function outPush (str) {
 };
 
 tap.on('comment', function (comment) {
-
+  console.log(chalk.yellow( comment.raw ));
   lastComment = comment;
 });
 
