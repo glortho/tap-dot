@@ -65,9 +65,10 @@ tap.on('output', function (res) {
 
     outPush('\n\n');
     outPush(chalk.red('Failed Tests: '));
-    outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural + '\n\n');
+    outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural );
 
     res.fail.forEach(function (error) {
+      outPush( '\n\n' );
       outPush('  ' + error.testName + '\n\n' );
       outPush('  ' + chalk.red('x') + ' ' + chalk.bold( error.name ) );
       outPush(
