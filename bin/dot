@@ -73,7 +73,7 @@ tap.on('output', function (res) {
       outPush('  ' + chalk.red('x') + ' ' + chalk.bold( error.name ) );
       outPush(
         '\n      ---------' +
-        '\n      ' + chalk.cyan( 'operator' ) + ': ' + error.error.operator + 
+        '\n      ' + chalk.gray( 'operator: ' + error.error.operator ) + 
         '\n      ' + chalk.cyan( 'expected' ) + ': ' + error.error.expected + 
         '\n      ' + chalk.cyan( 'actual' ) + ':   ' + error.error.actual +
         ( !error.error.stack ? '' : '\n      ' + chalk.cyan( 'at' ) + ':       ' + error.error.stack.split( '\n' )[0] ) +
