@@ -75,8 +75,8 @@ tap.on('output', function (res) {
         '\n      ---------' +
         '\n      ' + chalk.gray( 'operator: ' + error.error.operator ) + 
         '\n      ' + chalk.cyan( 'expected' ) + ': ' + error.error.expected + 
-        '\n      ' + chalk.cyan( 'actual' ) + ':   ' + error.error.actual +
-        ( !error.error.stack ? '' : '\n      ' + chalk.cyan( 'at' ) + ':       ' + error.error.stack.split( '\n' )[0] ) +
+        '\n      ' + chalk.cyan( 'actual' ) + ':   ' + ( error.error.stack ? chalk.bgRed( error.error.actual ) : error.error.actual ) +
+        ( !error.error.stack ? '' : '\n      ' + chalk.cyan( 'at' ) + ':       ' + error.error.stack.replace( /\n/g, '\n                ' ) ) +
         '\n      ---------\n'
       );
     });
