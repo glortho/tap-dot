@@ -68,8 +68,9 @@ tap.on('output', function (res) {
     outPush('There ' + past + ' ' + chalk.red(res.fail.length) + ' ' + plural + '\n' );
 
     res.fail.forEach(function (error) {
+      var testName = ( error.masterTest && error.testName !== error.masterTest ? error.masterTest + ' ' : '' ) + error.testName;
       outPush( '\n' );
-      outPush('  ' + error.testName + '\n\n' );
+      outPush('  ' + testName + '\n\n' );
       outPush('  ' + chalk.red('x') + ' ' + chalk.bold( error.name ) );
       outPush(
         '\n      ---------' +
